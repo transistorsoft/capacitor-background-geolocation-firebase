@@ -1,0 +1,14 @@
+<ion-item *ngIf="event">
+  &nbsp;
+  <ion-label class="ion-text-wrap">
+    <h2>
+      {{ event.taskId }}
+      <span class="date">
+        <ion-note>{{ event.timestamp }}</ion-note>
+      </span>
+    </h2>
+    <h3 *ngIf="event.headless">💀 BackgroundFetchHeadlessTask 💀</h3>
+
+
+  </ion-label>
+  </ion-item>

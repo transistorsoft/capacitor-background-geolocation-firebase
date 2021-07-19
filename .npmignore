@@ -1,0 +1,12 @@
+*.png
+*.log
+node_modules
+docs
+help
+scripts
+*.md
+bin
+ISSUE_TEMPLATE.md
+src
+*.tgz
+
