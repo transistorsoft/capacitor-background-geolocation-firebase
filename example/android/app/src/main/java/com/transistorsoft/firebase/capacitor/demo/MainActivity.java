@@ -1,4 +1,4 @@
-package com.transistorsoft.backgroundfetch.capacitor.demo;
+package com.transistorsoft.firebase.capacitor.demo;
 
 import com.getcapacitor.BridgeActivity;
 
