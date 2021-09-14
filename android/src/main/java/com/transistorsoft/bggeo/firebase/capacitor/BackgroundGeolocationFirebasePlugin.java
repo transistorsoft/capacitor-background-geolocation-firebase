@@ -1,5 +1,6 @@
 package com.transistorsoft.bggeo.firebase.capacitor;
 
+import android.content.Context;
 import android.util.Log;
 
 import com.getcapacitor.JSObject;
@@ -14,7 +15,7 @@ import org.json.JSONException;
 
 @CapacitorPlugin(name = "BackgroundGeolocationFirebase")
 public class BackgroundGeolocationFirebasePlugin extends Plugin {
-    public static final String TAG = "BackgroundGeolocationFirebasePlugin";
+    public static final String TAG = "TSFirebaseProxy";
     private boolean isRegistered;
 
     @Override
@@ -32,14 +33,18 @@ public class BackgroundGeolocationFirebasePlugin extends Plugin {
 
         TSFirebaseProxy proxy = TSFirebaseProxy.getInstance(context);
 
-        if (options.has(TSFirebaseProxy.FIELD_LOCATIONS_COLLECTION)) {
-            proxy.setLocationsCollection(options.getString(TSFirebaseProxy.FIELD_LOCATIONS_COLLECTION));
-        }
-        if (options.has(TSFirebaseProxy.FIELD_GEOFENCES_COLLECTION)) {
-            proxy.setGeofencesCollection(options.getString(TSFirebaseProxy.FIELD_GEOFENCES_COLLECTION));
-        }
-        if (options.has(TSFirebaseProxy.FIELD_UPDATE_SINGLE_DOCUMENT)) {
-            proxy.setUpdateSingleDocument(options.getBoolean(TSFirebaseProxy.FIELD_UPDATE_SINGLE_DOCUMENT));
+        try {
+            if (options.has(TSFirebaseProxy.FIELD_LOCATIONS_COLLECTION)) {
+                proxy.setLocationsCollection(options.getString(TSFirebaseProxy.FIELD_LOCATIONS_COLLECTION));
+            }
+            if (options.has(TSFirebaseProxy.FIELD_GEOFENCES_COLLECTION)) {
+                proxy.setGeofencesCollection(options.getString(TSFirebaseProxy.FIELD_GEOFENCES_COLLECTION));
+            }
+            if (options.has(TSFirebaseProxy.FIELD_UPDATE_SINGLE_DOCUMENT)) {
+                proxy.setUpdateSingleDocument(options.getBoolean(TSFirebaseProxy.FIELD_UPDATE_SINGLE_DOCUMENT));
+            }
+        } catch (JSONException e) {
+
         }
         proxy.save(context);
 

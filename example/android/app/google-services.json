@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "734615693002",
+    "project_id": "capacitor-firebase-demo",
+    "storage_bucket": "capacitor-firebase-demo.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:734615693002:android:ee583dc71fc7ff14fc7633",
+        "android_client_info": {
+          "package_name": "com.transistorsoft.firebase.capacitor.demo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "734615693002-kmk0cuo494mi8e8audcbmh78llkiep8q.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCIAioOGSXeBXARFvfernmdziuy7eG-yWk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "734615693002-kmk0cuo494mi8e8audcbmh78llkiep8q.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

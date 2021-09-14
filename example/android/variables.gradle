@@ -11,4 +11,7 @@ ext {
     androidxJunitVersion = '1.1.2'
     androidxEspressoCoreVersion = '3.3.0'
     cordovaAndroidVersion = '7.0.0'
+    googlePlayServicesLocationVersion = '18.0.0'
+    firebaseCoreVersion = "19.0.1"          // Or latest
+    firebaseFirestoreVersion = "23.0.3"
 }

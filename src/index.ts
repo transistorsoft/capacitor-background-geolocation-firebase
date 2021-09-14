@@ -1,5 +1,6 @@
 import {
   registerPlugin,
+  Plugins,
   PluginResultError
 } from '@capacitor/core';
 
@@ -10,10 +11,11 @@ import type {
 const TAG:string         = "BackgroundGeolocationFirebase";
 
 const NativeModule:any = registerPlugin(TAG);
+const BackgroundGeolocation:any = Plugins.BackgroundGeolocation;
 
 export class BackgroundGeolocationFirebase {
 
-  static configure(config:BackgroundGeolocationFirebaseConfig):Promise<Void> {
+  static configure(config:BackgroundGeolocationFirebaseConfig):Promise<void> {
 
     config = config || {};
 
@@ -24,6 +26,7 @@ export class BackgroundGeolocationFirebase {
         console.warn(TAG, "ERROR:", error);
         reject(error.message);
       });
+      BackgroundGeolocation.registerPlugin({id: 'firebaseproxy'});
     });
   }
 }

@@ -1,4 +1,4 @@
-#import "BackgroundFetchModule.h"
+#import "BackgroundGeolocationFirebaseModule.h"
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
@@ -7,7 +7,7 @@
 #import <Capacitor/CAPBridgedPlugin.h>
 #import <Capacitor/CAPBridgedJSTypes.h>
 
-#import <TSLocationManager/TSLocationManager.h>
+#import "Firebase.h"
 
 static NSString *const BACKGROUND_FETCH_TAG = @"BackgroundGeolocationFirebasePlugin";
 static NSString *const PLUGIN_ID = @"capacitor-background-geolocation-firebase";
@@ -50,15 +50,19 @@ static NSString *const DEFAULT_GEOFENCES_COLLECTION = @"geofences";
     }
 
     if (!isRegistered) {
-        TSConfig *bgGeo = [TSConfig sharedInstance];
-        [bgGeo registerPlugin:@"firebaseproxy"];
         isRegistered = YES;
-        [[NSNotificationCenter defaultCenter] addObserver:self
-                                                 selector:@selector(onPersist:)
-                                                     name:PERSIST_EVENT
-                                                   object:nil];
-    }
+            
+        // TODO make configurable.
+        FIRFirestore *db = [FIRFirestore firestore];
+        FIRFirestoreSettings *settings = [db settings];
+        [db setSettings:settings];
 
+        [[NSNotificationCenter defaultCenter] addObserver:self
+            selector:@selector(onPersist:)
+            name:PERSIST_EVENT
+            object:nil];
+    }
+    
     [call resolve:@{}];
 }
 

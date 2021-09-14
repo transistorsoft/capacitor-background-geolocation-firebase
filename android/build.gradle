@@ -17,6 +17,14 @@ buildscript {
 
 apply plugin: 'com.android.library'
 
+def DEFAULT_COMPILE_SDK_VERSION         = 30
+def DEFAULT_FIREBASE_CORE_VERSION       = "19.0.1"
+def DEFAULT_FIREBASE_FIRESTORE_VERSION  = "23.0.3"
+
+def safeExtGet(prop, fallback) {
+    rootProject.ext.has(prop) ? rootProject.ext.get(prop) : fallback
+}
+
 android {
     compileSdkVersion project.hasProperty('compileSdkVersion') ? rootProject.ext.compileSdkVersion : 30
     defaultConfig {
@@ -51,9 +59,15 @@ repositories {
 }
 
 dependencies {
+    def firebaseCoreVersion = safeExtGet('firebaseCoreVersion', DEFAULT_FIREBASE_CORE_VERSION)
+    def firebaseFirestoreVersion = safeExtGet('firebaseFirestoreVersion', DEFAULT_FIREBASE_FIRESTORE_VERSION)
+
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation project(':capacitor-android')
-    implementation 'org.greenrobot:eventbus:3.0.0'
+    implementation 'org.greenrobot:eventbus:3.2.0'
+    implementation "com.google.firebase:firebase-core:$firebaseCoreVersion"
+    implementation "com.google.firebase:firebase-firestore:$firebaseFirestoreVersion"
+
     api(group: 'com.transistorsoft', name:'tsfirebaseproxy', version: '+')
     testImplementation "junit:junit:$junitVersion"
     androidTestImplementation "androidx.test.ext:junit:$androidxJunitVersion"
