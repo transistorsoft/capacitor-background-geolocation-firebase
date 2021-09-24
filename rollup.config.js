@@ -4,7 +4,7 @@ export default {
     {
       file: 'dist/plugin.js',
       format: 'iife',
-      name: 'capacitorBackgroundFetch',
+      name: 'capacitorBackgroundGeolocationFirebase',
       globals: {
         '@capacitor/core': 'capacitorExports',
       },
