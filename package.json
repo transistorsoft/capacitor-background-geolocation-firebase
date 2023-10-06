@@ -1,6 +1,6 @@
 {
   "name": "@transistorsoft/capacitor-background-geolocation-firebase",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Firebase Adapter for capacitor-background-geolocation",
   "main": "dist/plugin.cjs.js",
   "module": "dist/esm/index.js",

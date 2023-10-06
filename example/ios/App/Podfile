@@ -1,4 +1,4 @@
-platform :ios, '12.0'
+platform :ios, '13.0'
 use_frameworks!
 
 # workaround to avoid Xcode caching of Pods that requires
@@ -12,9 +12,9 @@ def capacitor_pods
   pod 'CapacitorApp', :path => '../../node_modules/@capacitor/app'
   pod 'CapacitorHaptics', :path => '../../node_modules/@capacitor/haptics'
   pod 'CapacitorKeyboard', :path => '../../node_modules/@capacitor/keyboard'
-  pod 'CapacitorStorage', :path => '../../node_modules/@capacitor/storage'
+  pod 'CapacitorPreferences', :path => '../../node_modules/@capacitor/preferences'
   pod 'TransistorsoftCapacitorBackgroundFetch', :path => '../../node_modules/@transistorsoft/capacitor-background-fetch'
-  pod 'TransistorsoftCapacitorBackgroundGeolocation', :path => '../../../../capacitor-background-geolocation'
+  pod 'TransistorsoftCapacitorBackgroundGeolocation', :path => '../../node_modules/@transistorsoft/capacitor-background-geolocation'
   pod 'TransistorsoftCapacitorBackgroundGeolocationFirebase', :path => '../../..'
 end
 
@@ -22,3 +22,18 @@ target 'App' do
   capacitor_pods
   # Add your Pods here
 end
+
+
+post_install do |installer|
+  #assertDeploymentTarget(installer)
+  installer.pods_project.targets.each do |target|
+    target.build_configurations.each do |config|
+    xcconfig_path = config.base_configuration_reference.real_path
+    xcconfig = File.read(xcconfig_path)
+    xcconfig_mod = xcconfig.gsub(/DT_TOOLCHAIN_DIR/, "TOOLCHAIN_DIR")
+    File.open(xcconfig_path, "w") { |file| file << xcconfig_mod }
+    end
+  end
+end
+
+
