@@ -21,13 +21,13 @@ The **[Android module](https://shop.transistorsoft.com/collections/frontpage/pro
 ### From npm
 
 ```
-$ npm install capacitor-background-geolocation-firebase --save
+$ npm install @transistorsoft/capacitor-background-geolocation-firebase --save
 ```
 
 ### From yarn
 
 ```bash
-$ yarn add capacitor-background-geolocation-firebase
+$ yarn add @transistorsoft/capacitor-background-geolocation-firebase
 ```
 
 ### Latest from Github
