@@ -5,8 +5,8 @@
 - First clone the plugin repo.
 
 ```console
-git clone https://github.com/transistorsoft/capacitor-background-fetch.git
-cd capacitor-background-fetch
+git clone https://github.com/transistorsoft/capacitor-background-geolocation-firebase.git
+cd capacitor-background-geolocation-firebase
 ```
 
 - Now compile the plugin's typescript source code.
@@ -33,25 +33,4 @@ ionic capacitor run android
 ionic capacitor run ios
 ```
 
-## Simulating events.
-
-### Android
-
-```console
-adb shell cmd jobscheduler run -f com.transistorsoft.backgroundfetch.capacitor.demo 999
-```
-
-The `/example` folder has a script that can run the command above:
-
-```console
-./scripts/simulate-fetch
-```
-
-### iOS
-
-See the plugin [README](../README.md#ios-simulated-events) to learn how to simulate iOS fetch events.
-
-```console
- e -l objc -- (void)[[BGTaskScheduler sharedScheduler] _simulateLaunchForTaskWithIdentifier:@"com.transistorsoft.fetch"]
-```
 

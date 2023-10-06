@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.transistorsoft.firebase.capacitor.demo">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
     <application
         android:allowBackup="true"
@@ -15,6 +14,7 @@
             android:name="com.transistorsoft.firebase.capacitor.demo.MainActivity"
             android:label="@string/title_activity_main"
             android:theme="@style/AppTheme.NoActionBarLaunch"
+            android:exported="true"
             android:launchMode="singleTask">
 
             <intent-filter>
@@ -31,8 +31,13 @@
             android:grantUriPermissions="true">
             <meta-data
                 android:name="android.support.FILE_PROVIDER_PATHS"
-                android:resource="@xml/file_paths"></meta-data>
+                android:resource="@xml/file_paths" />
         </provider>
+
+        <!-- Transistorsoft license keys -->
+        <meta-data android:name="com.transistorsoft.firebaseproxy.license" android:value="25235eba63239bdee7d0ab9bdb46698dd4e19c0fd855153c496b7d082009425f" />
+        <meta-data android:name="com.transistorsoft.locationmanager.license" android:value="0bc23e9b740492d0e1790983335b2816f11545b8f482ecbf25a07d4859c7c917" />
+
     </application>
 
     <!-- Permissions -->
