@@ -1,5 +1,8 @@
 # CHANGELOG
 
+## [1.1.0] &mdash; 2024-11-05
+- Update Firebase dependencies
+
 ## [1.0.0] &mdash; 2023-10-06
 - Update /example to latest capacitor/angular
 - Update default Android `firebaseCoreVersion 21.1.1`, `firebaseFirestoreVersion 24.8.1`

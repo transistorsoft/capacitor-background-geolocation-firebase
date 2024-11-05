@@ -2,5 +2,14 @@
 	"appId": "com.transistorsoft.firebase.capacitor.demo",
 	"appName": "BGFirebase Demo",
 	"webDir": "www",
-	"bundledWebRuntime": false
+	"bundledWebRuntime": false,
+	"packageClassList": [
+		"AppPlugin",
+		"HapticsPlugin",
+		"KeyboardPlugin",
+		"PreferencesPlugin",
+		"BackgroundFetchModule",
+		"BackgroundGeolocationModule",
+		"BackgroundGeolocationFirebaseModule"
+	]
 }

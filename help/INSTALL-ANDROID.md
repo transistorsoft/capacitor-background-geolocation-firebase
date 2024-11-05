@@ -19,25 +19,17 @@ $ npx cap sync
 ### :open_file_folder: **`android/build.gradle`**
 
 ```diff
-buildscript {
-    dependencies {
-        classpath 'com.android.tools.build:gradle:3.1.4'
-+       classpath 'com.google.gms:google-services:4.3.10'    // Or higher.
-    }
-
-}
-
 allprojects {
     repositories {
-        mavenLocal()
-        .
-        .
-        .
-+       maven {
-+           // Required capacitor-background-geolocation-firebase
-+           url("${project(':transistorsoft-capacitor-background-geolocation-firebase').projectDir}/libs")
-+       }
-
+        google()
+        mavenCentral()
+        // capacitor-background-geolocation
+        maven { url("${project(':transistorsoft-capacitor-background-geolocation').projectDir}/libs") }
+        maven { url 'https://developer.huawei.com/repo/' }
+        // capacitor-background-fetch
+        maven { url("${project(':transistorsoft-capacitor-background-fetch').projectDir}/libs") }
++       // capacitor-background-geolocation-firebase
++       maven { url("${project(':transistorsoft-capacitor-background-geolocation-firebase').projectDir}/libs") }
     }
 }
 ```
@@ -50,25 +42,15 @@ ext {
     .
     .
     .
-+   firebaseCoreVersion = "19.0.1"                  // Or higher.
-+   firebaseFirestoreVersion = "23.0.3"             // Or higher.
++   FirebaseSDKVersion = "33.4.0" // or as-desired
 
 }
 
 ```
 
-### :open_file_folder: **`android/app/build.gradle`**
+> [!NOTE]  
+> the param __`ext.FirebaseSdkVersion`__ controls the imported version of the *Firebase SDK* (`com.google.firebase:firebase-bom`).  Consult the [Firebase Release Notes](https://firebase.google.com/support/release-notes/android?_gl=1*viqpog*_up*MQ..*_ga*MTE1NjI2MDkuMTcyOTA4ODY0MQ..*_ga_CW55HF8NVT*MTcyOTA4ODY0MS4xLjAuMTcyOTA4ODY0MS4wLjAuMA..#latest_sdk_versions) to determine the latest version of the *Firebase* SDK
 
-```diff
-
-dependencies {
-    .
-    .
-    .
-}
-
-+ apply plugin: 'com.google.gms.google-services'
-```
 
 ### :open_file_folder: **`google-services.json`**
 
