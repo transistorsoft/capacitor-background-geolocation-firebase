@@ -1,7 +1,7 @@
 import UIKit
 import Capacitor
 import TSBackgroundFetch
-import Firebase
+import FirebaseCore
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {

@@ -7,7 +7,8 @@
 #import <Capacitor/CAPBridgedPlugin.h>
 #import <Capacitor/CAPBridgedJSTypes.h>
 
-#import "Firebase.h"
+@import FirebaseCore;
+@import FirebaseFirestore;
 
 static NSString *const BACKGROUND_FETCH_TAG = @"BackgroundGeolocationFirebasePlugin";
 static NSString *const PLUGIN_ID = @"capacitor-background-geolocation-firebase";
